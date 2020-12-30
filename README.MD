@@ -69,13 +69,15 @@ class TCNNConfig(object):
     save_per_batch = 10  # 每多少轮存入tensorboard
  ```
 
-##### 2.run ``` python run_cnn.py train ``` , now it start training
+##### 2.  In ``` Classifier/``` directory,  run ``` python run_cnn.py train ``` , now it start training
 
+After running the training, the following files are generated in ```Classifier/data/cnews/```:
 
+- `data.vocab.txt`
 
-##### 3.run ``` python run_cnn.py test ```  to test on ```data.test.txt```
+##### 3. In ``` Classifier/``` directory, run ``` python run_cnn.py test ```  to test on ```data.test.txt```
 
-##### 4.```  Classifier/predict.py ``` provide predict function of CNN model.
+##### 4.```  Classifier/predict.py ``` provide predict function of CNN model. Run `predict.py` to predict sentence on `Classifer/data/cnews/data.predict.txt`. This will output predictions into `Classifier/predict.txt`.
 
 # Step4:Train the Generation Model
 
@@ -122,7 +124,7 @@ Now you have a model that you can use to predict on new data. We do this by runn
 
 ##### 1.Set  API and parameter
 
-In ```OpenNMT/Deployment.py``` file:
+In ```OpenNMT/Deployment.py``` file, you can fill in your own Url, parameter, and simulative user information:
 ```
 #################################################################################################
 ##############You should fill in your community API and simulative user information##############
@@ -151,9 +153,9 @@ AI_auth_list = [["username1", "<authorization1>"],
 ```
 ##### 2. Run deployment script
 
-run ``` OpenNMT/deployment.py ```
+run ``` OpenNMT/Deployment.py ```
 
-In console UI, you will see following situation if you did not do anything :
+In console , you will see following log if you did not do anything :
 ```
 content: This is a post example
 comment: This is a comment example
