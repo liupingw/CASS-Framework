@@ -69,15 +69,21 @@ class TCNNConfig(object):
     save_per_batch = 10  # 每多少轮存入tensorboard
  ```
 
-##### 2.  In ``` Classifier/``` directory,  run ``` python run_cnn.py train ``` , now it start training
+##### 2.  Train the model
+
+In ``` Classifier/``` directory,  run ``` python run_cnn.py train ``` , now it start training
 
 After running the training, the following files are generated in ```Classifier/data/cnews/```:
 
 - `data.vocab.txt`
 
-##### 3. In ``` Classifier/``` directory, run ```python run_cnn.py test``` to test on ```data.test.txt```
+##### 3. Test the model
 
-##### 4.```Classifier/predict.py``` provide predict function of CNN model. Run ```predict.py``` to predict sentence on ```Classifer/data/cnews/data.predict.txt```. This will output predictions into ```Classifier/predict.txt```.
+In ``` Classifier/``` directory, run ```python run_cnn.py test``` to test on ```data.test.txt```
+
+##### 4. Predict
+
+```Classifier/predict.py``` provide predict function of CNN model. Run ```predict.py``` to predict sentence on ```Classifer/data/cnews/data.predict.txt```. This will output predictions into ```Classifier/predict.txt```.
 
 # Step4:Train the Generation Model
 
