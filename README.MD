@@ -20,7 +20,7 @@ Requirements：
 - Torchvision == 0.2.1
 - Torchtext == 0.4.0
 
-Install ``` onmt ``` from ```  setup.py ```:
+Install ``` onmt ``` from ```  OpenNMT/setup.py ```:
 ``` 
 python setup.py install
  ```
