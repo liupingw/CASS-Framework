@@ -182,3 +182,5 @@ chatbot will comment on this sentence: Fighting!!!
 1.Different online communities have different APIs and require different parameters. This part needs to be modified according to the specific situation.
 
 2.OpenNMT has been updated to version 1.7, which is not compatible with the version（1.0.0） used in this repo.
+
+3.If you have any questions, please contact me by email:wangliuping17@maisl.ucas.ac.cn
