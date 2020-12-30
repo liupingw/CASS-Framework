@@ -75,9 +75,9 @@ After running the training, the following files are generated in ```Classifier/d
 
 - `data.vocab.txt`
 
-##### 3. In ``` Classifier/``` directory, run `python run_cnn.py test`  to test on `data.test.txt`
+##### 3. In ``` Classifier/``` directory, run ```python run_cnn.py test``` to test on ```data.test.txt```
 
-##### 4.`Classifier/predict.py` provide predict function of CNN model. Run `predict.py` to predict sentence on `Classifer/data/cnews/data.predict.txt`. This will output predictions into `Classifier/predict.txt`.
+##### 4.```Classifier/predict.py``` provide predict function of CNN model. Run ```predict.py``` to predict sentence on ```Classifer/data/cnews/data.predict.txt```. This will output predictions into ```Classifier/predict.txt```.
 
 # Step4:Train the Generation Model
 
