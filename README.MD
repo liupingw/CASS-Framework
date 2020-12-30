@@ -45,7 +45,7 @@ Prepare following files in ``` OpenNMT/data/ ``` ：
 
 # Step3:Train the Classification Model
 
-##### 1.CNN parameter in cnn_model.py
+##### 1.CNN parameter in Classifier/cnn_model.py
  ```
 class TCNNConfig(object):
     """CNN配置参数"""
@@ -75,11 +75,13 @@ class TCNNConfig(object):
 
 ##### 3.run ``` python run_cnn.py test ```  to test on ```data.test.txt```
 
-##### 4.```  predict.py ``` provide predict function of CNN model.
+##### 4.```  Classifier/predict.py ``` provide predict function of CNN model.
 
 # Step4:Train the Generation Model
 
 ##### 1. Preprocess the data
+
+run ```OpenNMT/preprocess.py```
 
 ```
 python preprocess.py -train_src data/src-train.txt -train_tgt data/tgt-train.txt -valid_src data/src-val.txt -valid_tgt data/tgt-val.txt -save_data data/demo
@@ -88,7 +90,7 @@ python preprocess.py -train_src data/src-train.txt -train_tgt data/tgt-train.txt
 Validation files are required and used to evaluate the convergence of the training. It usually contains no more than 5000 sentences.
 
 
-After running the preprocessing, the following files are generated:
+After running the preprocessing, the following files are generated in ```OpenNMT/data/```:
 
 * `demo.train.pt`: serialized PyTorch file containing training data
 * `demo.valid.pt`: serialized PyTorch file containing validation data
@@ -99,6 +101,8 @@ Internally the system never touches the words themselves but uses these indices.
 
 ##### 2. Train the model
 
+run ```OpenNMT/train.py```
+
 ```bash
 python train.py -data data/demo -save_model demo-model
 ```
@@ -106,6 +110,8 @@ python train.py -data data/demo -save_model demo-model
 The main train command is quite simple. Minimally it takes a data file and a save file.  This will run the default model, which consists of a 2-layer LSTM with 500 hidden units on both the encoder/decoder. If you want to train on GPU, you need to set, as an example: CUDA_VISIBLE_DEVICES=1,3 `-world_size 2 -gpu_ranks 0 1` to use (say) GPU 1 and 3 on this node only. To know more about distributed training on single or multi nodes, read the FAQ section:xxxxxxx
 
 ##### 3. Translate
+
+run ```OpenNMT/translate_original.py```
 
 ```bash
 python translate_original.py -model demo-model_acc_XX.XX_ppl_XXX.XX_eX.pt -src data/src-test.txt -output pred.txt -replace_unk -verbose
@@ -115,7 +121,8 @@ Now you have a model that you can use to predict on new data. We do this by runn
 # Step5: Run Deployment Script
 
 ##### 1.Set  API and parameter
-In ```Deployment.py``` file:
+
+In ```OpenNMT/Deployment.py``` file:
 ```
 #################################################################################################
 ##############You should fill in your community API and simulative user information##############
@@ -144,7 +151,8 @@ AI_auth_list = [["username1", "<authorization1>"],
 ```
 ##### 2. Run deployment script
 
-run ``` deployment.py ```
+run ``` OpenNMT/deployment.py ```
+
 In console UI, you will see following situation if you did not do anything :
 ```
 content: This is a post example
