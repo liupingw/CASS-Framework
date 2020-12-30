@@ -183,4 +183,4 @@ chatbot will comment on this sentence: Fighting!!!
 
 2.OpenNMT has been updated to version 1.7, which is not compatible with the version（1.0.0） used in this repo.
 
-3.If you have any questions, please contact me by email:wangliuping17@maisl.ucas.ac.cn
+3.If you have any questions, please contact me by email:wangliuping17@mails.ucas.ac.cn
