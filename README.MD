@@ -135,10 +135,10 @@ In ```OpenNMT/Deployment.py``` file, you can fill in your own Url, parameter, an
 ##############You should fill in your community API and simulative user information##############
 #########################and modify time parameter if you want###################################
 
-THRESHOLD = 10  # the threshold for deciding whether the chatbot needs to respond to the overlooked post or not 回帖阈值
-STUDY_TIME = 60 * 24 * 7  # the whole deployment period 整个实验周期
-OBSERVE_INTERVAL = 9  # the interval time between getting latest posts 每隔一段时间去刷新一下有没有新帖子
-COMMENT_INTERVAL = 2  # the interval time detecting if observed posts have been replied 每隔一段时间去检查这些已经被观察的帖子有没有被回复 
+THRESHOLD = 10  # the threshold for deciding whether the chatbot needs to respond to the overlooked post or not 
+STUDY_TIME = 60 * 24 * 7  # the whole deployment period 
+OBSERVE_INTERVAL = 9  # the interval time between getting latest posts 
+COMMENT_INTERVAL = 2  # the interval time detecting if observed posts have been replied 
 
 Community_getLatestPost_Url = ""
 Community_toComment_Url = ""
