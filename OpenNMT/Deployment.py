@@ -175,7 +175,7 @@ def toComment(topic_id, content, ua, authorization):
         print('\n Agree to comment')
 
     print("chatbot will comment on this sentence:"+comment)
-    signal.alarm(0)  # 读到输入的话重置信号
+    signal.alarm(0)  
 
 
 
@@ -235,7 +235,7 @@ def main():
     nowTime = datetime.datetime.now()
 
 
-    currentObeserveTime = OBSERVE_INTERVAL + 1  # 为了保证一开始就可以去求新帖子
+    currentObeserveTime = OBSERVE_INTERVAL + 1  # 
 
     forumList = [15, 32, 33, 70, 47]
     lastobservedTime15 = nowTime
@@ -248,7 +248,7 @@ def main():
 
 
     filename = tid_maker()
-    isComm = True  # 要不要回复，来回切换，回复一个，跳一个，回复一个跳一个
+    isComm = True  #
 
     obeserveList = []
 
@@ -268,7 +268,7 @@ def main():
                     # print(AIName +" "+ authorization+" "+ua)
 
                     if int((datetime.datetime.now() - study_startTime).seconds / 60) > STUDY_TIME:
-                        print("Deployment End 到达实验时间，结束程序")
+                        print("Deployment End ")
                         print(int((datetime.datetime.now() - study_startTime).seconds / 60))
                         for postId in obeserveList:
                             print(postId)
@@ -277,7 +277,7 @@ def main():
                     try:
 
                         if currentObeserveTime > OBSERVE_INTERVAL:
-                            print("Time to get latest post 已经达到获取新贴的时间")
+                            print("Time to get latest post")
 
                             # refresh new posts 刷一遍新出的帖子
                             for forumId in forumList:
@@ -294,25 +294,25 @@ def main():
                                 elif forumId == 47:
                                     lastobservedTime = lastobservedTime47
 
-                                nowOberservedTime = datetime.datetime.now()
-                                NewestObservedTime = nowOberservedTime
+                                nowobservedTime = datetime.datetime.now()
+                                NewestObservedTime = nowobservedTime
                                 lastPostId = ""
 
-                                while nowOberservedTime > lastobservedTime:
-                                    # get new posts 往下获取新出现的post
+                                while nowobservedTime > lastobservedTime:
+                                    # get new posts 
                                     if lastPostId == "":
                                         topics = getLatestNoLast(forumId)
                                     else:
                                         topics = getLatest(forumId, lastPostId)
                                     for post in topics:
 
-                                        # filter old posts 只检索新出现的post
+                                        # filter old posts 
                                         published_date = post.get("published_date")
 
-                                        nowOberservedTime = datetime.datetime.strptime(published_date,
+                                        nowobservedTime = datetime.datetime.strptime(published_date,
                                                                                        '%Y-%m-%d %H:%M:%S')
-                                        if nowOberservedTime < lastobservedTime:
-                                            print("已经超过上次新帖的位置")
+                                        if nowobservedTime < lastobservedTime:
+                                            print("has observed!")
 
                                             break
 
@@ -323,13 +323,13 @@ def main():
                                         total_review = post.get("total_review")
 
                                         if total_review == 0:
-                                            print("none-replied post 冷贴")
+                                            print("none-replied post")
 
                                             # 进入观察队列
                                             obeserveList.append(postId)
 
                                         else:
-                                            print("others has replied 已经有人回复过了")
+                                            print("others has replied")
 
                                             # 已经有人回复了
                                             user_id = post.get("user_id")
@@ -342,7 +342,7 @@ def main():
                                                     "") + "\t" + str(user_id) + "\t" + str(
                                                     total_review) + "\t" + published_date + "\n")
 
-                                    if nowOberservedTime < lastobservedTime:
+                                    if nowobservedTime < lastobservedTime:
                                         break
                                 if forumId == 15:
                                     lastobservedTime15 = NewestObservedTime
@@ -356,9 +356,9 @@ def main():
                                     lastobservedTime47 = NewestObservedTime
 
                         if currentObeserveTime >= COMMENT_INTERVAL:
-                            print("time to check oberserved posts 已经达到检查队列的时间")
+                            print("time to check observed posts")
 
-                            print("current oberserved posts 目前的观察队列：")
+                            print("current observed posts：")
                             # 检查观察队列是否要超过THRESHOLD的
                             for postId in obeserveList[0:]:
                                 print(postId)
@@ -367,7 +367,7 @@ def main():
                                     topic, reviewers = getPostDetailNoLast(postId, "reviewed_date")
                                 except Exception as e:
                                     print(e)
-                                    print(" There is aan exception when getting post detail,so remove this post in oberserved posts list 获取postdetail时出错，删除该post")
+                                    print(" There is an exception when getting post detail,so remove this post in observed posts list")
                                     obeserveList.remove(postId)
                                     print("remove ", postId)
                                     continue
@@ -378,13 +378,13 @@ def main():
                                 user_id = topic.get("user_id")
                                 title = topic.get("title")
                                 if title is None:
-                                    title = "无标题"
+                                    title = "No Title"
                                 forum_id = topic.get("forum_id")
                                 total_review = topic.get("total_review")
                                 content = topic.get("content")
                                 user_name = topic.get("publisher").get("screen_name")
                                 if total_floor > 0:
-                                    print("others has replied 已经有人回复过了")
+                                    print("others has replied")
                                     f_hasOthers.write(
                                         str(postId) + "\t" + str(forum_id) + "\t" + title.strip().replace("\n",
                                                                                                           "").replace(
@@ -437,7 +437,7 @@ def main():
 
                                                 f_reply.write(logstr)
                                         else:
-                                            print("randomly not to reply随机选择不回复")
+                                            print("randomly not to reply")
                                             logstr = "reason:randon" + "\tpostId:" + str(postId) + "\tforum_id:" + str(
                                                 forum_id) + "\tuser_id:" + str(user_id) + \
                                                      "\tuser_name:" + user_name + "\ttitle:" + title.strip().replace(
@@ -452,7 +452,7 @@ def main():
 
                                     obeserveList.remove(postId)
                                     print("remove ", postId)
-                            print("current oberserved posts list 过滤一遍后的观察队列：")
+                            print("current observed posts list：")
                             for postId in obeserveList:
                                 print(postId)
 

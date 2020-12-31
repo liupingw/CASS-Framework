@@ -19,7 +19,7 @@ base_dir = '../Classifer/data/cnews'
 vocab_dir = os.path.join(base_dir, 'data.vocab.txt')
 
 save_dir = '../Classifer/checkpoints/textcnn'
-save_path = os.path.join(save_dir, 'best_validation')  # 最佳验证结果保存路径
+save_path = os.path.join(save_dir, 'best_validation')
 
 
 
@@ -34,10 +34,9 @@ class CnnModel:
         self.session = tf.Session()
         self.session.run(tf.global_variables_initializer())
         saver = tf.train.Saver()
-        saver.restore(sess=self.session, save_path=save_path)  # 读取保存的模型
+        saver.restore(sess=self.session, save_path=save_path)
 
     def predict(self, message):
-        # 支持不论在python2还是python3下训练的模型都可以在2或者3的环境下运行
         content = unicode(message)
         data = [self.word_to_id[x] for x in content if x in self.word_to_id]
 
