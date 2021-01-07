@@ -5,7 +5,16 @@ This is an online community auto-reply chatbot framework. It includes text class
 3. Generate comments
 4. Reply automatically in the community through community API
 
+The link to paper:[CASS: Towards Building a Social-Support Chatbot for Online Health Community](https://arxiv.org/abs/2101.01583)
 
+@misc{wang2021cass,
+      title={CASS: Towards Building a Social-Support Chatbot for Online Health Community}, 
+      author={Liuping Wang and Dakuo Wang and Feng Tian and Zhenhui Peng and Xiangmin Fan and Zhan Zhang and Shuai Ma and Mo Yu and Xiaojuan Ma and Hongan Wang},
+      year={2021},
+      eprint={2101.01583},
+      archivePrefix={arXiv},
+      primaryClass={cs.HC}
+}
 
 ![workflow](workflow.png)
 
