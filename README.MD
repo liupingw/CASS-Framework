@@ -14,10 +14,10 @@ The link to paper:[CASS: Towards Building a Social-Support Chatbot for Online He
       title={CASS: Towards Building a Social-Support Chatbot for Online Health Community},       
       author={Liuping Wang and Dakuo Wang and Feng Tian and Zhenhui Peng and Xiangmin Fan and Zhan Zhang and Shuai Ma and Mo Yu and Xiaojuan Ma and Hongan Wang},      
       year={2021},
-      eprint={2101.01583},      
-      archivePrefix={arXiv},      
-      primaryClass={cs.HC}
-      }
+booktitle = {Conference Companion Publication of the 2019 on Computer Supported Cooperative Work and Social Computing},
+numpages = {31},
+keywords = {{chatbot, bot; pregnancy, healthcare, AI deployment, online community, social support, peer support, emotional support, machine learning, neural network, system building, conversational agent, human AI collaboration, human AI interaction, explainable AI, trustworthy AI},
+series = {CSCW ’21}
 ```
 ![workflow](workflow.png)
 
