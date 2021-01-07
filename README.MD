@@ -5,6 +5,10 @@ This is an online community auto-reply chatbot framework. It includes text class
 3. Generate comments
 4. Reply automatically in the community through community API
 
+
+
+![workflow](/image/workflow.png)
+
 **Reference**
 
 OpenNMT：https://github.com/OpenNMT/OpenNMT-py
