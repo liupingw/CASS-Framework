@@ -9,7 +9,7 @@ This is an online community auto-reply chatbot framework. It includes text class
 The link to paper:[CASS: Towards Building a Social-Support Chatbot for Online Health Community](https://arxiv.org/abs/2101.01583)
 
 **Bibtex formatted citation:**
-
+'''
 @misc{wang2021cass,
 title={CASS: Towards Building a Social-Support Chatbot for Online Health Community},       
       author={Liuping Wang and Dakuo Wang and Feng Tian and Zhenhui Peng and Xiangmin Fan and Zhan Zhang and Shuai Ma and Mo Yu and Xiaojuan Ma and Hongan Wang},      
@@ -18,7 +18,7 @@ title={CASS: Towards Building a Social-Support Chatbot for Online Health Communi
       archivePrefix={arXiv},      
       primaryClass={cs.HC}
       }
-
+'''
 ![workflow](workflow.png)
 
 **Reference**
