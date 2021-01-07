@@ -165,16 +165,15 @@ def GetComment(content):
 def toComment(topic_id, content, ua, authorization):
     comment = GetComment(content)
 
-
-    print("content:" + content)
-    print("comment:" + comment)
-
+    print("Post:" + content)
+    print("AI Response:" + comment)
     try:
-        comment = input("Do you agree to Comment? Input nothing to confirm or input an appropriate sentence:")
+        comment = input(
+            "Do you agree with the response? Enter an alternative response or Do nothing and the response will be post in 10 seconds:")
     except InputTimeoutError:
-        print('\n Agree to comment')
+        print('\n Agree')
 
-    print("chatbot will comment on this sentence:"+comment)
+    print("Chatbot responds:" + comment + "\n\n")
     signal.alarm(0)  
 
 
