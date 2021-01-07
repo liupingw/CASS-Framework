@@ -7,7 +7,7 @@ This is an online community auto-reply chatbot framework. It includes text class
 
 
 
-![workflow](/image/workflow.png)
+![workflow](workflow.png)
 
 **Reference**
 
