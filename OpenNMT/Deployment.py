@@ -29,7 +29,7 @@ def interrupted(signum, frame):
 
 signal.signal(signal.SIGALRM, interrupted)
 
-signal.alarm(10)#
+
 
 
 #################################################################################################
@@ -165,15 +165,18 @@ def GetComment(content):
 def toComment(topic_id, content, ua, authorization):
     comment = GetComment(content)
 
+    signal.alarm(10)
     print("Post:" + content)
     print("AI Response:" + comment)
     try:
         comment = input(
-            "Do you agree with the response? Enter an alternative response or Do nothing and the response will be post in 10 seconds:")
+            "Do you agree with the response? Enter an alternative response or Do nothing and the response will be posted in 10 seconds:")
     except InputTimeoutError:
         print('\n Agree')
 
-    print("Chatbot responds:" + comment + "\n\n")
+    text = "AI Response(Final):" + comment + "\n\n"
+
+    print('\033[33;1m' + text + '\033[0m')
     signal.alarm(0)  
 
 
